@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=IBM+Plex+Sans:wght@300&family=Titillium+Web:wght@300&family=Whisper&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: pink;
+            margin: 0;
+            padding: 0;
+            font-family: 'Whisper', cursive;
+        }
+
+        .container {
+            position: relative;
+            max-width: 350px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .name {
+            color: black;
+            font-size: 31px;
+            font-weight: bold;
+            margin-left: -68%;
+        }
+
+        .data {
+            width: 100%;
+            height: auto;
+            font-size: 18px;
+            line-height: 150%;
+        }
+
+        #play, #stop {
+            width: 100%;
+            height: 38px;
+            margin-top: 20px;
+            border-radius: 20px;
+            border: 1px solid rgb(0, 119, 255);
+            cursor: pointer;
+        }
+
+        #play:hover, #stop:hover {
+            background-color: rgb(0, 132, 255);
+            border: none;
+            color: rgb(255, 255, 255);
+            transition: 1s;
+        }
+
+        .eyes {
+            width: 100%;
+            max-width: 185px;
+            height: auto;
+            margin: 20px auto;
+            border-radius: 9px;
+        }
+
+        .disc {
+            width: 80px;
+            height: 80px;
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: -2;
+            animation: rotate 5s infinite linear;
+            display: none;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .name {
+                margin-left: 0;
+            }
+
+            #play, #stop {
+                width: 100%;
+            }
+
+            .disc {
+                margin-top: 20px;
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(100deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            75% {
+                transform: rotate(280deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="name"></p>
+        <p class="data"></p>
+         <p style="text-align: right;">Sincerely yours,<br>Mark Lester Raguindin</p>    
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let name = document.querySelector('.name');
+        name.textContent = `Dear ${localStorage.getItem('name')},`;
+
+        let playMusic = document.querySelector('#play');
+        let stopMusic = document.querySelector('#stop');
+        let disc = document.querySelector('.disc');
+
+        var letter = [
+        `I still remember the first time we started talking. That night, I began to admire you. I admired you of the things that you can go through all the way, I realized that the thing I admired the most about you was your determination to achieve your dream. Adulting isn't easy but I know you can do it, keep going because no matter how cruel the world is, you can always have me. Its okay to worry about things in the future, we're still young, you're not supposed to have your whole life figured out yet.  Don't worry everything will work out. You've made it this far because you're strong even on the days when you didn't think you were. It's not always easy and that's life. Be strong and I hope you know that your hard days don't go unnoticed but just know that even the Moon isn't Shining its still there and better days will come again.
+        
+        I'm so proud of you,  I'm always here to support you. Always looking forward to our success together. I would choose you in every lifetime. Every second, day or even years always remember that I'm always here because you're still the one I'm going home to. You're my Safe Place, you're my everything. 
+        
+        Thank you for being the most amazing partner I could asked for, thank you for listening to me and always being there for me, I have so many dreams that I want to fulfill with you. Te amo, Amor de mi vida.
+        `
+        ];
+
+        var data = document.querySelector('.data');
+        const randomNumber = Math.floor(Math.random() * letter.length);
+        data.textContent = letter[randomNumber];
+      
+    });
+</script>
+</html>
